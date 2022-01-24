@@ -7,6 +7,7 @@ import com.kamijoucen.stateflow.builder.impl.RulerStateFlowBuilder;
 import com.kamijoucen.stateflow.config.RulerStateFlowConfiguration;
 import com.kamijoucen.stateflow.config.impl.DefaultRulerStateFlowConfiguration;
 import com.kamijoucen.stateflow.node.StateFlowGraph;
+import com.kamijoucen.stateflow.runtime.StateFlowRunner;
 import org.junit.jupiter.api.Test;
 
 public class DemoTest {
@@ -33,9 +34,12 @@ public class DemoTest {
     }
 
     @Test
-    public void build_flow_test() {
+    public void run_test() {
+        RulerStateFlowConfiguration config = config();
 
-        FlowBuilder builder = new FlowBuilderImpl();
+        StateFlowRunner runner = config.getRunnerFactory().getRunner();
+
+//        runner.start()
 
     }
 

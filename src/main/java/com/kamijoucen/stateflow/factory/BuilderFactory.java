@@ -8,5 +8,4 @@ public interface BuilderFactory {
     FlowBuilder flowBuilder();
 
     StateBuilder stateBuilder();
-
 }

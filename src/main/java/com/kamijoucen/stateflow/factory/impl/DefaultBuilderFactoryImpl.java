@@ -6,7 +6,7 @@ import com.kamijoucen.stateflow.builder.impl.FlowBuilderImpl;
 import com.kamijoucen.stateflow.builder.impl.StateBuilderImpl;
 import com.kamijoucen.stateflow.factory.BuilderFactory;
 
-public class DefaultBuilderFactory implements BuilderFactory {
+public class DefaultBuilderFactoryImpl implements BuilderFactory {
 
     @Override
     public FlowBuilder flowBuilder() {

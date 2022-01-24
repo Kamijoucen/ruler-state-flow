@@ -10,17 +10,22 @@ import java.util.Map;
 
 public class StateBuilderImpl implements StateBuilder {
 
+    private int index = 0;
     private List<RulerState> states = new ArrayList<RulerState>();
 
     @Override
     public StateBuilder state(String state) {
-        this.states.add(new RulerState(state, null));
+        RulerState rulerState = new RulerState(state, null);
+        rulerState.setIndex(index++);
+        this.states.add(rulerState);
         return this;
     }
 
     @Override
     public StateBuilder state(String state, Map<String, String> busObj) {
-        this.states.add(new RulerState(state, busObj));
+        RulerState rulerState = new RulerState(state, busObj);
+        rulerState.setIndex(index++);
+        this.states.add(rulerState);
         return this;
     }
 
