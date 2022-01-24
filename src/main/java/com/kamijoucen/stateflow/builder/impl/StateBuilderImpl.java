@@ -6,6 +6,7 @@ import com.kamijoucen.stateflow.node.RulerState;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class StateBuilderImpl implements StateBuilder {
 
@@ -18,13 +19,13 @@ public class StateBuilderImpl implements StateBuilder {
     }
 
     @Override
-    public StateBuilder state(String state, Object busObj) {
+    public StateBuilder state(String state, Map<String, String> busObj) {
         this.states.add(new RulerState(state, busObj));
         return this;
     }
 
     @Override
-    public StateBuilder state(String state, Object busObj, ActionListener listener) {
+    public StateBuilder state(String state, Map<String, String> busObj, ActionListener listener) {
         return null;
     }
 }

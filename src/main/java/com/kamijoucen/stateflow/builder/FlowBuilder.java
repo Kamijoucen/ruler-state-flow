@@ -4,6 +4,8 @@ public interface FlowBuilder {
 
     FlowBuilder and();
 
+    FlowBuilder end();
+
     FlowBuilder source(String state);
 
     FlowBuilder target(String state);

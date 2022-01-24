@@ -23,6 +23,11 @@ public class FlowBuilderImpl implements FlowBuilder {
     }
 
     @Override
+    public FlowBuilder end() {
+        return and();
+    }
+
+    @Override
     public FlowBuilder source(String state) {
         initCurrentFlow();
         this.currentFlow.setSource(state);
