@@ -5,30 +5,46 @@ import com.kamijoucen.stateflow.builder.StateBuilder;
 import com.kamijoucen.stateflow.config.RulerStateFlowConfiguration;
 import com.kamijoucen.stateflow.node.StateFlowGraph;
 
+import java.util.List;
+
 public class RulerStateFlowBuilder {
 
-    private FlowBuilder flowBuilder;
-    private StateBuilder stateBuilder;
+    private RulerStateFlowConfiguration config;
+    private List<FlowBuilder> flowBuilders;
+    private List<StateBuilder> stateBuilders;
 
     private RulerStateFlowBuilder() {
     }
 
     public static RulerStateFlowBuilder builder(RulerStateFlowConfiguration config) {
         RulerStateFlowBuilder builder = new RulerStateFlowBuilder();
-        builder.flowBuilder = config.getBuilderFactory().flowBuilder();
-        builder.stateBuilder = config.getBuilderFactory().stateBuilder();
+        builder.config = config;
         return builder;
     }
 
-    public FlowBuilder getFlowBuilder() {
+    public FlowBuilder withFlow() {
+        FlowBuilder flowBuilder = config.getBuilderFactory().getFlowBuilder(this);
+        flowBuilders.add(flowBuilder);
         return flowBuilder;
     }
 
-    public StateBuilder getStateBuilder() {
+    public StateBuilder withState() {
+        StateBuilder stateBuilder = config.getBuilderFactory().getStateBuilder(this);
+        stateBuilders.add(stateBuilder);
         return stateBuilder;
     }
 
+    public List<FlowBuilder> getFlowBuilders() {
+        return flowBuilders;
+    }
+
+    public List<StateBuilder> getStateBuilders() {
+        return stateBuilders;
+    }
+
     public StateFlowGraph build() {
+
         return null;
     }
+
 }

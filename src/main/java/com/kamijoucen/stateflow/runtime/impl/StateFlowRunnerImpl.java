@@ -8,6 +8,9 @@ public class StateFlowRunnerImpl implements StateFlowRunner {
 
     @Override
     public StateContext start(StateFlowGraph graph) {
+        StateContext context = new StateContext() {
+        };
+
         return null;
     }
 

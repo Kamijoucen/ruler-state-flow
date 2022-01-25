@@ -1,30 +1,21 @@
 package com.kamijoucen.stateflow.builder.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.kamijoucen.stateflow.builder.FlowBuilder;
 import com.kamijoucen.stateflow.node.RulerCondition;
 import com.kamijoucen.stateflow.node.RulerFlow;
 
 public class FlowBuilderImpl implements FlowBuilder {
 
+    private final RulerStateFlowBuilder parentBuilder;
     private RulerFlow currentFlow = null;
-    private List<RulerFlow> flows = new ArrayList<RulerFlow>();
 
-    @Override
-    public FlowBuilder and() {
-        if (currentFlow == null) {
-            return this;
-        }
-        this.flows.add(currentFlow);
-        this.currentFlow = null;
-        return this;
+    public FlowBuilderImpl(RulerStateFlowBuilder parentBuilder) {
+        this.parentBuilder = parentBuilder;
     }
 
     @Override
-    public FlowBuilder end() {
-        return and();
+    public RulerStateFlowBuilder and() {
+        return parentBuilder;
     }
 
     @Override

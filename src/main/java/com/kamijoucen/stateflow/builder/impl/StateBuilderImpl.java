@@ -10,27 +10,30 @@ import java.util.Map;
 
 public class StateBuilderImpl implements StateBuilder {
 
-    private int index = 0;
+    private RulerStateFlowBuilder parentBuilder;
     private List<RulerState> states = new ArrayList<RulerState>();
 
-    @Override
-    public StateBuilder state(String state) {
-        RulerState rulerState = new RulerState(state, null);
-        rulerState.setIndex(index++);
-        this.states.add(rulerState);
-        return this;
+    public StateBuilderImpl(RulerStateFlowBuilder parentBuilder) {
+        this.parentBuilder = parentBuilder;
     }
 
     @Override
-    public StateBuilder state(String state, Map<String, String> busObj) {
-        RulerState rulerState = new RulerState(state, busObj);
-        rulerState.setIndex(index++);
-        this.states.add(rulerState);
-        return this;
+    public RulerStateFlowBuilder and() {
+        return parentBuilder;
     }
 
     @Override
-    public StateBuilder state(String state, Map<String, String> busObj, ActionListener listener) {
+    public StateBuilder key(String state) {
+        return null;
+    }
+
+    @Override
+    public StateBuilder customValue(Map<String, String> busk) {
+        return null;
+    }
+
+    @Override
+    public StateBuilder listener(ActionListener listener) {
         return null;
     }
 }

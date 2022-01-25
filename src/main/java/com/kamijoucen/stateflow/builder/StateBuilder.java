@@ -1,15 +1,17 @@
 package com.kamijoucen.stateflow.builder;
 
+import com.kamijoucen.stateflow.builder.impl.RulerStateFlowBuilder;
 import com.kamijoucen.stateflow.listener.ActionListener;
 
 import java.util.Map;
 
 public interface StateBuilder {
 
-    StateBuilder state(String state);
+    RulerStateFlowBuilder and();
+    StateBuilder key(String state);
 
-    StateBuilder state(String state, Map<String, String> busk);
+    StateBuilder customValue(Map<String, String> busk);
 
-    StateBuilder state(String state, Map<String, String> busObj, ActionListener listener);
+    StateBuilder listener(ActionListener listener);
 
 }
