@@ -1,6 +1,6 @@
 package com.kamijoucen.stateflow.test;
 
-import com.kamijoucen.stateflow.builder.impl.RulerStateFlowBuilder;
+import com.kamijoucen.stateflow.RulerStateFlowBuilder;
 import com.kamijoucen.stateflow.config.RulerStateFlowConfiguration;
 import com.kamijoucen.stateflow.config.impl.DefaultRulerStateFlowConfiguration;
 import com.kamijoucen.stateflow.node.StateFlowGraph;
@@ -20,8 +20,7 @@ public class DemoTest {
 
     @Test
     public void build_state_test() {
-        RulerStateFlowBuilder builder = RulerStateFlowBuilder.builder(config());
-
+        RulerStateFlowBuilder builder = RulerStateFlowBuilder.builder();
         builder.withFlow()
                 .source("A").target("B").condition("$a > 15").and()
                 .withFlow()
@@ -36,9 +35,6 @@ public class DemoTest {
     @Test
     public void run_test() {
         RulerStateFlowConfiguration config = config();
-
-        StateFlowRunner runner = config.getRunnerFactory().getRunner();
-
 //        runner.start()
 
     }

@@ -1,6 +1,6 @@
 package com.kamijoucen.stateflow.builder;
 
-import com.kamijoucen.stateflow.builder.impl.RulerStateFlowBuilder;
+import com.kamijoucen.stateflow.RulerStateFlowBuilder;
 
 public interface FlowBuilder {
 

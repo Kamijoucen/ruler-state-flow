@@ -4,7 +4,7 @@ import com.kamijoucen.stateflow.node.StateFlowGraph;
 
 public interface StateFlowRunner {
 
-    StateContext start(StateFlowGraph graph);
+    StateContext start(String startKey, StateFlowGraph graph);
 
     boolean next(StateContext context, StateFlowGraph graph);
 

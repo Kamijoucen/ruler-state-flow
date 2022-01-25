@@ -11,8 +11,8 @@ public class StateFlowGraph {
 
     // flow and mapping
     private List<RulerFlow> flows;
-    private Map<String, RulerFlow> sourceFlowMapping;
-    private Map<String, RulerFlow> targetFlowMapping;
+    private Map<String, List<RulerFlow>> sourceFlowMapping;
+    private Map<String, List<RulerFlow>> targetFlowMapping;
 
     public List<RulerState> getStates() {
         return states;
@@ -46,19 +46,19 @@ public class StateFlowGraph {
         this.flows = flows;
     }
 
-    public Map<String, RulerFlow> getSourceFlowMapping() {
+    public Map<String, List<RulerFlow>> getSourceFlowMapping() {
         return sourceFlowMapping;
     }
 
-    public void setSourceFlowMapping(Map<String, RulerFlow> sourceFlowMapping) {
+    public void setSourceFlowMapping(Map<String, List<RulerFlow>> sourceFlowMapping) {
         this.sourceFlowMapping = sourceFlowMapping;
     }
 
-    public Map<String, RulerFlow> getTargetFlowMapping() {
+    public Map<String, List<RulerFlow>> getTargetFlowMapping() {
         return targetFlowMapping;
     }
 
-    public void setTargetFlowMapping(Map<String, RulerFlow> targetFlowMapping) {
+    public void setTargetFlowMapping(Map<String, List<RulerFlow>> targetFlowMapping) {
         this.targetFlowMapping = targetFlowMapping;
     }
 }

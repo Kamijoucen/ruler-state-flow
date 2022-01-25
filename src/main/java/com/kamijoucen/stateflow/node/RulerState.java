@@ -6,6 +6,8 @@ public class RulerState {
 
     private int index;
     private String key;
+    private int priority;
+    private String skipExpression;
     private Map<String, String> customValue;
 
     public RulerState(String key, Map<String, String> customValue) {
@@ -24,6 +26,18 @@ public class RulerState {
     }
     public void setKey(String key) {
         this.key = key;
+    }
+    public int getPriority() {
+        return priority;
+    }
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+    public String getSkipExpression() {
+        return skipExpression;
+    }
+    public void setSkipExpression(String skipExpression) {
+        this.skipExpression = skipExpression;
     }
     public Map<String, String> getCustomValue() {
         return customValue;
