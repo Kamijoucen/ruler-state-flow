@@ -12,6 +12,14 @@ import java.util.List;
 
 public class NodeUtil {
 
+    public static List<RulerFlow> getNextFlow(String key, StateFlowGraph graph) {
+        List<RulerFlow> targetFlows = graph.getSourceFlowMapping().get(key);
+        if (CollectionUtil.isEmpty(targetFlows)) {
+            return Collections.emptyList();
+        }
+        return targetFlows;
+    }
+
     public static List<RulerFlow> getNextFlow(int index, StateFlowGraph graph) {
         RulerState sourceState = NodeUtil.getState(index, graph);
         AssertUtil.notNull(sourceState);
@@ -22,9 +30,9 @@ public class NodeUtil {
         return targetFlows;
     }
 
-
     public static List<RulerState> getNextState(String key, StateFlowGraph graph) {
-        return null;
+        RulerState state = NodeUtil.getState(key, graph);
+        return NodeUtil.getNextState(state.getIndex(), graph);
     }
 
     public static List<RulerState> getNextState(int index, StateFlowGraph graph) {

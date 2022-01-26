@@ -11,10 +11,8 @@ import com.kamijoucen.stateflow.util.NodeUtil;
 
 public class StateFlowRunnerImpl implements StateFlowRunner {
 
-    private RulerStateFlowConfiguration config;
 
-    public StateFlowRunnerImpl(RulerStateFlowConfiguration config) {
-        this.config = config;
+    public StateFlowRunnerImpl() {
     }
 
     @Override
