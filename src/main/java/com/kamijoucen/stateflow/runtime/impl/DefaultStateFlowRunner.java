@@ -1,23 +1,21 @@
 package com.kamijoucen.stateflow.runtime.impl;
 
+import com.kamijoucen.ruler.util.AssertUtil;
+import com.kamijoucen.ruler.util.CollectionUtil;
 import com.kamijoucen.ruler.util.IOUtil;
-import com.kamijoucen.stateflow.config.RulerStateFlowConfiguration;
 import com.kamijoucen.stateflow.node.RulerState;
 import com.kamijoucen.stateflow.node.StateFlowGraph;
 import com.kamijoucen.stateflow.runtime.StateContext;
-import com.kamijoucen.stateflow.runtime.StateContextImpl;
 import com.kamijoucen.stateflow.runtime.StateFlowRunner;
 import com.kamijoucen.stateflow.util.NodeUtil;
 
-public class StateFlowRunnerImpl implements StateFlowRunner {
+import java.util.List;
 
-
-    public StateFlowRunnerImpl() {
-    }
+public class DefaultStateFlowRunner implements StateFlowRunner {
 
     @Override
     public StateContext start(String startKey, StateFlowGraph graph) {
-        StateContext context = new StateContextImpl();
+        StateContext context = new DefaultStateContext();
         if (IOUtil.isNotBlank(startKey)) {
             context.setCurrentIndex(0);
         } else {
@@ -29,9 +27,16 @@ public class StateFlowRunnerImpl implements StateFlowRunner {
 
     @Override
     public boolean next(StateContext context, StateFlowGraph graph) {
+        RulerState currentState = NodeUtil.getState(context.getCurrentIndex(), graph);
+        AssertUtil.notNull(currentState);
 
+        List<RulerState> nextState = NodeUtil.getNextState(context.getCurrentIndex(), graph);
+        if (CollectionUtil.isEmpty(nextState)) {
+            return false;
+        }
+        for (RulerState state : nextState) {
 
-
+        }
         return false;
     }
 

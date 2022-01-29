@@ -1,8 +1,10 @@
-package com.kamijoucen.stateflow.runtime;
+package com.kamijoucen.stateflow.runtime.impl;
+
+import com.kamijoucen.stateflow.runtime.StateContext;
 
 import java.util.Map;
 
-public class StateContextImpl implements StateContext {
+public class DefaultStateContext implements StateContext {
 
     private int index;
 
